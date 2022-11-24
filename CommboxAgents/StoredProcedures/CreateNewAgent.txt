@@ -1,0 +1,26 @@
+﻿
+DELIMITER $$
+CREATE DEFINER=`commboxadmin`@`%` PROCEDURE `CreateNewAgent`(
+	IN AgentName VARCHAR(255),
+    IN Skills long,
+    IN LocationLat double,
+    IN LocationLng double
+)
+BEGIN
+# insert agent
+INSERT INTO commbox.cmx_agent (Name) VALUES (AgentName);
+SET @NewAgentID = (SELECT LAST_INSERT_ID());
+
+# inset skills
+SET @str_helper = CONCAT("'),(",@NewAgentID,',''');
+SET @table_list = CONCAT('(',@NewAgentID,',''',REPLACE(Skills,',',@str_helper),''')');
+SET @sql =CONCAT('INSERT INTO commbox.cmx_skill (AgentID,Name) VALUES ',@table_list);
+# select @sql; --> INSERT INTO commbox.cmx_skill (AgentID,Name) VALUES (@NewAgentID,'skill1'),(@NewAgentID,'skill2')...
+PREPARE s FROM @sql; EXECUTE s; DEALLOCATE PREPARE s;
+
+# insert location
+INSERT INTO commbox.cmx_location (AgentID,Lat,Lng) VALUES (@NewAgentID,LocationLat,LocationLng);
+
+END$$
+DELIMITER ;
+SELECT * FROM commbox.cmx_skill;

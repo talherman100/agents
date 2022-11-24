@@ -1,0 +1,6 @@
+﻿CREATE TABLE `cmx_skill` (
+  `SkillID` int(11) NOT NULL AUTO_INCREMENT,
+  `AgentID` int(11) NOT NULL,
+  `Name` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`SkillID`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;

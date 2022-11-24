@@ -1,0 +1,5 @@
+﻿CREATE TABLE `cmx_agent` (
+  `AgentID` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`AgentID`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;

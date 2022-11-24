@@ -1,0 +1,10 @@
+﻿DELIMITER $$
+CREATE DEFINER=`commboxadmin`@`%` PROCEDURE `GetAllAgentsAndSkills`()
+BEGIN
+    	SELECT * FROM commbox.cmx_skill;
+        SELECT * FROM commbox.cmx_agent;
+        SELECT * FROM commbox.cmx_location;
+
+END$$
+DELIMITER ;
+

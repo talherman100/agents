@@ -1,0 +1,7 @@
+﻿CREATE TABLE `cmx_location` (
+  `LocationID` int(11) NOT NULL AUTO_INCREMENT,
+  `Lat` double DEFAULT '0',
+  `Lng` double DEFAULT '0',
+  `AgentID` int(11) DEFAULT '0',
+  PRIMARY KEY (`LocationID`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
