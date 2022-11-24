@@ -21,7 +21,7 @@ const Home = () => {
 
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
-        googleMapsApiKey: "AIzaSyDah3_SsWrO4YgRY3X0m_b277tvzTjLX9Y" ///Move the key to appsettings
+        googleMapsApiKey: "#####################" ///Move the key to appsettings
     })
     const [latValue, setLatValue] = useState<number>(42.169692904298415);
     const [lngValue, setLngValue] = useState<number>(-117.0454257677287);
